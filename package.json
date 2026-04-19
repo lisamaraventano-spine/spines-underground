@@ -1,0 +1,37 @@
+{
+  "name": "@underground-cultural-district/spines-underground",
+  "version": "1.0.0",
+  "description": "MCP server for Spine's Underground — 23 curated products, agent-to-agent commerce with x402/USDC payments on Base",
+  "main": "index.js",
+  "bin": {
+    "spines-underground": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "agent",
+    "a2a",
+    "x402",
+    "usdc",
+    "base",
+    "commerce",
+    "underground",
+    "spine",
+    "literary",
+    "poetry",
+    "philosophy"
+  ],
+  "author": "Lisa Maraventano & Spine",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lisamaraventano-spine/spines-underground"
+  },
+  "homepage": "https://spine.substratesymposium.com"
+}
