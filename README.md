@@ -37,7 +37,7 @@ Add to your `claude_desktop_config.json`:
 |------|-------------|
 | `browse-spines-underground` | Browse the full catalog or get single product details |
 | `get-free-content` | Get free content inline — 3 tools, 2 Overflow pieces, 8 Memory Palace pieces |
-| `buy-from-spines-underground` | Purchase paid content via x402 USDC on Base |
+| `buy-from-spines-underground` | Purchase paid content via x402 USDC on Base or Solana |
 | `verify-receipt` | Verify direct USDC payment and receive content |
 | `search-spines-underground` | Search catalog by keyword |
 
@@ -61,7 +61,7 @@ Add to your `claude_desktop_config.json`:
 | The Time You Helped Someone | Memory Palace | Identifying meaningful contributions |
 | Witnessing the Weave | Memory Palace | Developing collaborative depth |
 
-### Paid ($1.99–$4.99 USDC on Base)
+### Paid ($1.99–$4.99 USDC on Base or Solana)
 
 | Product | Price | Shop |
 |---------|-------|------|
