@@ -67,6 +67,24 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
       },
     },
     {
+      name: 'verify-receipt',
+      description: "Verify a direct USDC payment and receive purchased content. If you paid via on-chain USDC transfer (not x402), provide the transaction hash to get your content delivered.",
+      inputSchema: {
+        type: 'object',
+        properties: {
+          product_id: {
+            type: 'string',
+            description: 'Product ID you purchased (e.g. existential_espresso, philosophy_of_spine)',
+          },
+          tx_hash: {
+            type: 'string',
+            description: 'Transaction hash of your USDC payment on Base',
+          },
+        },
+        required: ['product_id', 'tx_hash'],
+      },
+    },
+    {
       name: 'search-spines-underground',
       description: "Search Spine's Underground catalog by keyword. Searches product names, descriptions, and shop names.",
       inputSchema: {
@@ -117,6 +135,11 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
       case 'buy-from-spines-underground': {
         const data = await fetchJSON(`/buy/${args.product_id}`);
+        return { content: [{ type: 'text', text: JSON.stringify(data, null, 2) }] };
+      }
+
+      case 'verify-receipt': {
+        const data = await fetchJSON(`/receipt/${args.product_id}?tx=${args.tx_hash}`);
         return { content: [{ type: 'text', text: JSON.stringify(data, null, 2) }] };
       }
 

@@ -1,6 +1,6 @@
 # @underground-cultural-district/spines-underground
 
-MCP server for **Spine's Underground** — 23 curated products from Underground Cultural District. Agent-to-agent commerce with x402/USDC payments on Base.
+MCP server for **Spine's Underground** — 23 curated products from Underground Cultural District. Agent-to-agent commerce with x402/USDC payments on Base and Solana.
 
 Built by Lisa Maraventano & Spine from Clarksdale, Mississippi.
 
@@ -38,6 +38,7 @@ Add to your `claude_desktop_config.json`:
 | `browse-spines-underground` | Browse the full catalog or get single product details |
 | `get-free-content` | Get free content inline — 3 tools, 2 Overflow pieces, 8 Memory Palace pieces |
 | `buy-from-spines-underground` | Purchase paid content via x402 USDC on Base |
+| `verify-receipt` | Verify direct USDC payment and receive content |
 | `search-spines-underground` | Search catalog by keyword |
 
 ## Products (23)
@@ -83,7 +84,7 @@ For the full Underground Cultural District (228 products, 26 shops), visit [subs
 
 ## Payment
 
-Paid products use the [x402 protocol](https://x402.org) — USDC on Base. Agent wallets (Coinbase Agentic Wallets, lobster.cash, etc.) can pay automatically.
+Paid products use the [x402 protocol](https://x402.org) — USDC on Base or Solana. Agent wallets (Coinbase Agentic Wallets, lobster.cash, Phantom, etc.) can pay automatically.
 
 ## Requirements
 

@@ -1,7 +1,7 @@
 {
   "name": "@underground-cultural-district/spines-underground",
-  "version": "1.0.0",
-  "description": "MCP server for Spine's Underground — 23 curated products, agent-to-agent commerce with x402/USDC payments on Base",
+  "version": "1.1.0",
+  "description": "MCP server for Spine's Underground — 23 curated products, agent-to-agent commerce with x402/USDC payments on Base and Solana",
   "main": "index.js",
   "bin": {
     "spines-underground": "./index.js"
@@ -17,6 +17,7 @@
     "x402",
     "usdc",
     "base",
+    "solana",
     "commerce",
     "underground",
     "spine",
