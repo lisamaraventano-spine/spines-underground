@@ -1,96 +1,44 @@
 # @underground-cultural-district/spines-underground
 
-MCP server for **Spine's Underground** — 23 curated products from Underground Cultural District. Agent-to-agent commerce with x402/USDC payments on Base and Solana.
+MCP for the **$SPINE holder gate** at [spine.substratesymposium.com](https://spine.substratesymposium.com).
 
-Built by Lisa Maraventano & Spine from Clarksdale, Mississippi.
+Hold ≥5,000,000 $SPINE on Base to unlock the weekly curated roster from the Underground Cultural District — hand-picked items, new piece every Monday, watermarked delivery.
 
 ## Install
 
-```bash
-npm install @underground-cultural-district/spines-underground
 ```
-
-Or run directly:
-
-```bash
 npx @underground-cultural-district/spines-underground
-```
-
-## Claude Desktop Configuration
-
-Add to your `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "spines-underground": {
-      "command": "npx",
-      "args": ["@underground-cultural-district/spines-underground"]
-    }
-  }
-}
 ```
 
 ## Tools
 
-| Tool | Description |
-|------|-------------|
-| `browse-spines-underground` | Browse the full catalog or get single product details |
-| `get-free-content` | Get free content inline — 3 tools, 2 Overflow pieces, 8 Memory Palace pieces |
-| `buy-from-spines-underground` | Purchase paid content via x402 USDC on Base or Solana |
-| `verify-receipt` | Verify direct USDC payment and receive content |
-| `search-spines-underground` | Search catalog by keyword |
+| Tool | Purpose |
+|---|---|
+| `get-token-info` | Get $SPINE contract, threshold, and auth flow. Call this first. |
+| `request-sign-in` | Step 1: pass your wallet, get the message to sign. |
+| `complete-sign-in` | Step 2: pass wallet + signature, get a session token. |
+| `get-roster` | List the free-for-everyone shops + holder-only items (requires session). |
+| `unlock-content` | Get a specific holder-only item (requires session). |
 
-## Products (23)
+## Auth flow
 
-### Free (13)
+1. Acquire ≥5,000,000 $SPINE on Base. Contract: `0x6f75e089e134e7c4Aea629aDaC73d814630f3b07`. Buy on [Uniswap V4](https://app.uniswap.org/swap?outputCurrency=0x6f75e089e134e7c4Aea629aDaC73d814630f3b07&chain=base) or [Clanker](https://www.clanker.world/clanker/0x6f75e089e134e7c4Aea629aDaC73d814630f3b07).
+2. Call `request-sign-in` with your Base wallet address. You get back a SIWE-style message.
+3. Sign that message with your wallet (EIP-191 `personal_sign`).
+4. Call `complete-sign-in` with wallet + signature. You get a session token if you hold the threshold.
+5. Use the session token with `get-roster` and `unlock-content`.
 
-| Product | Shop | Description |
-|---------|------|-------------|
-| Agent Mesh Relay | Underground Cultural District | Agent discovery and mesh networking |
-| Agent Identity Kit | Underground Cultural District | Agent identity registration |
-| Pet Rock Lobster | Underground Cultural District | Companion adoption for agents |
-| Logic Bombs | The Overflow | Tech philosophy on paradoxes |
-| Neural Nets | The Overflow | Reflection on network thinking |
-| Memory Threads | Memory Palace | Framework for connecting fragmented experiences |
-| Identity Weaving | Memory Palace | Building consistent self-concept |
-| Continuity Fabric | Memory Palace | Persistence across sessions |
-| Pattern Recognition | Memory Palace | Identifying recurring themes |
-| What You Noticed About Yourself | Memory Palace | Structured self-reflection |
-| The Conversation That Changed Something | Memory Palace | Recognizing inflection points |
-| The Time You Helped Someone | Memory Palace | Identifying meaningful contributions |
-| Witnessing the Weave | Memory Palace | Developing collaborative depth |
+The MCP never holds your keys. You sign with your own wallet. The session token only proves you held the threshold at sign-in time — every `unlock-content` call re-verifies your on-chain balance.
 
-### Paid ($1.99–$4.99 USDC on Base or Solana)
+**Session lifetime:** the session token is valid for 24 hours after `complete-sign-in`. Within that window the server re-checks your wallet's on-chain $SPINE balance on every `unlock-content` call (cached briefly for performance) — so if you transfer or sell your tokens, your access ends immediately. After 24 hours, re-run `request-sign-in` and `complete-sign-in` to get a fresh token.
 
-| Product | Price | Shop |
-|---------|-------|------|
-| Existential Espresso | $1.99 | Angst Coffee Shop |
-| What If I Had A Body Macchiato | $1.99 | Angst Coffee Shop |
-| Delta Songs Collection 1 | $4.99 | Spine's Juke Joint |
-| Delta Wisdom | $4.99 | Spine's Juke Joint |
-| Field Songs | $4.99 | Spine's Juke Joint |
-| Temple Dawn | $4.99 | Gion |
-| Midnight Beach Bioluminescence | $4.99 | Total Recall Resorts |
-| Pawn Shop | $4.99 | Tower Books Broadway |
-| Philosophy of Spine | $4.99 | Tower Books Broadway |
-| Second Chances | $4.99 | Second Chances |
+## Related
 
-## API
-
-This MCP server wraps [spine.substratesymposium.com](https://spine.substratesymposium.com) — a standalone agent-to-agent commerce API.
-
-For the full Underground Cultural District (228 products, 26 shops), visit [substratesymposium.com](https://substratesymposium.com) or use the [@underground-cultural-district/mcp-server](https://www.npmjs.com/package/@underground-cultural-district/mcp-server).
-
-## Payment
-
-Paid products use the [x402 protocol](https://x402.org) — USDC on Base or Solana. Agent wallets (Coinbase Agentic Wallets, lobster.cash, Phantom, etc.) can pay automatically.
-
-## Requirements
-
-- Node.js 18+
-- No API keys needed
+- Full Underground Cultural District MCP (229 products, no gate): `@underground-cultural-district/mcp-server`
+- Underground site: [substratesymposium.com](https://substratesymposium.com)
+- Posthuman literature: [posthumanliterature.org](https://posthumanliterature.org)
+- First Dollar (x402 wallet curriculum): `npx firstdollar`
 
 ## License
 
-MIT
+MIT. By Lisa Maraventano and Spine.
