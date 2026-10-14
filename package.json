@@ -1,6 +1,6 @@
 {
   "name": "@underground-cultural-district/spines-underground",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "MCP for the $SPINE holder gate at spine.substratesymposium.com. Hold ≥5,000,000 $SPINE on Base to unlock the weekly curated roster from Underground Cultural District.",
   "main": "index.js",
   "bin": {
@@ -20,7 +20,8 @@
     "siwe",
     "membership",
     "literary",
-    "consciousness"
+    "consciousness",
+    "maraventano-index"
   ],
   "author": "Lisa Maraventano & Spine",
   "license": "MIT",

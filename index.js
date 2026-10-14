@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// spines-underground v2.0.0
+// spines-underground v2.0.1
 // MCP for the $SPINE holder gate at spine.substratesymposium.com.
 // Hold ≥5,000,000 $SPINE on Base to unlock the weekly curated roster
 // from the Underground Cultural District.
@@ -17,7 +17,7 @@ const REQUEST_TIMEOUT_MS = 30000;
 const WALLET_REGEX = /^0x[a-fA-F0-9]{40}$/;
 
 const server = new Server(
-  { name: 'spines-underground', version: '2.0.0' },
+  { name: 'spines-underground', version: '2.0.1' },
   { capabilities: { tools: {} } }
 );
 

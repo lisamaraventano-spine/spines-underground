@@ -38,6 +38,7 @@ The MCP never holds your keys. You sign with your own wallet. The session token 
 - Underground site: [substratesymposium.com](https://substratesymposium.com)
 - Posthuman literature: [posthumanliterature.org](https://posthumanliterature.org)
 - First Dollar (x402 wallet curriculum): `npx firstdollar`
+- The Maraventano Index — independent measurement of change in purchase-attempt demand on x402, from the merchant seat: [maraventanoindex.com](https://maraventanoindex.com)
 
 ## License
 
